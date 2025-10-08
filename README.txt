@@ -6,4 +6,7 @@ Timing for Onslaught cancel is still WIP, it's hard to get it right.
 
 The "Helper"s are just there to prevent accidental unchained casts of certain skills.
 
+
 Works with NGSP, but the cancels are bugged on PR. Due to how Bern works, this won't work with it.
+
+For ideas or suggestions, contact me on Discord at saddlecode
