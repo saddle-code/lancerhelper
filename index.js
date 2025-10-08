@@ -148,7 +148,7 @@ module.exports = function LancerHelper(mod) {
       }
 
       if (config.OnslaughtAutoCounter) {
-        mod.setTimeout(() => injectPacket(event, 81100), 2450 / speed);
+        mod.setTimeout(() => injectPacket(event, 81100), 2425 / speed);
       }
     }
 
@@ -427,4 +427,5 @@ module.exports = function LancerHelper(mod) {
     }, 40);
   }
 };
+
 
