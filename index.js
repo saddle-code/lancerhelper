@@ -60,7 +60,7 @@ module.exports = function LancerHelper(mod) {
   });
 
   mod.hook("S_PLAYER_STAT_UPDATE", 14, (event) => {
-    aspd = (event.attackSpeed + event.attackSpeedBonus) / 100;
+    aspd = (event.attackSpeed + event.attackSpeedBonus) / event.attackSpeed;
   });
 
   mod.hook(
@@ -427,3 +427,4 @@ module.exports = function LancerHelper(mod) {
     }, 40);
   }
 };
+
