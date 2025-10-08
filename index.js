@@ -12,10 +12,7 @@ module.exports = function LancerHelper(mod) {
   let allowSpringAttack = false;
   let lastSkillId = 0;
   let skillsEnded = {};
-  let cooldowns = {};
-  let cooldownInterval = null;
-  let enabled = true;
-  let lastSkill;
+  let enabled = false;
 
   let shieldBashGlyph = false;
   let allowShieldBash = true;
@@ -31,8 +28,6 @@ module.exports = function LancerHelper(mod) {
   let isOnslaughtReady = true;
   let springAttackCooldown = 0;
   let springAttackLastUseTime;
-  let talentState = [];
-  let lastBulk = { loc: { x: 0, y: 0, z: 0 } };
   let springLastUse = 0;
   let springCooldown = 0;
   let onslaughtLastUse = 0;
@@ -429,6 +424,7 @@ module.exports = function LancerHelper(mod) {
     }, 40);
   }
 };
+
 
 
 
