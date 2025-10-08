@@ -138,8 +138,10 @@ module.exports = function LancerHelper(mod) {
       const speed = event.speed;
 
       if (config.AutoCancelOnslaught) {
-        if (canCounter) return;
-        mod.setTimeout(() => blockCancel(event), 2475 / speed);
+        mod.setTimeout(() => {
+          if (canCounter) return;
+          blockCancel(event);
+        }, 2500 / speed);
       }
 
       if (config.LockOnslaught) {
@@ -427,5 +429,6 @@ module.exports = function LancerHelper(mod) {
     }, 40);
   }
 };
+
 
 
