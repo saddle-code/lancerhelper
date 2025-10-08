@@ -1,0 +1,9 @@
+{
+    "name": "LancerHelper",
+    "author": "Saddle",
+    "description": "Macros, chains, cancels, a set of tools for Lancers to use.",
+    "version": "1.0",
+	"options": {
+	"reloadable": true
+	}
+}

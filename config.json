@@ -1,0 +1,25 @@
+{
+  "SpringAttackHelper": false,
+  "DebilitateIntoSpringAttack": false,
+  "LockdownBlowIntoSpringAttack": false,
+  "AutoSpringAttackCancel": false,
+  "ShieldBarrageIntoSpringAttack": false,
+  "AutoCounterIntoSpringAttack": false,
+  "ShieldCounterAutoCancel": false,
+
+  "ShieldBarrageIntoOnslaught": false,
+  "BashIntoOnslaught": false,
+  "AutoCancelOnslaught": false,
+  "LockOnslaught": false,
+  "OnslaughtHelper": false,
+  "OnslaughtAutoCounter": false,
+
+  "DebilitateIntoWallop": false,
+  "WallopIntoLeap": false,
+  "WallopAutoCancel": false,
+  "SpringAttackIntoWallop": false,
+
+  "SuperLeapAutoCancel": false,
+  "LungeHitAutoSuperLeap": false,
+  "SuperLeapHelper": false
+}
