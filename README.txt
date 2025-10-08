@@ -8,5 +8,6 @@ The "Helper"s are just there to prevent accidental unchained casts of certain sk
 
 Works with NGSP, but the cancels are bugged on PR. Does not work with Bern.
 
-For ideas or suggestions, contact me on Discord at saddlecode
+For ideas or suggestions, feel free to contact me on Discord at saddlecode
+
 
