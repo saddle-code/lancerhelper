@@ -21,5 +21,9 @@
 
   "SuperLeapAutoCancel": false,
   "LungeHitAutoSuperLeap": false,
-  "SuperLeapHelper": false
+  "SuperLeapHelper": false,
+
+  "InfuriateCancel": false,
+  "ChallengingShoutCancel":false
 }
+
