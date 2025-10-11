@@ -7,7 +7,7 @@ Mod includes:
 - Wallop into Leap
 - Shield Barrage & Shield Bash into Onslaught
 - Onslaught Lock & Onslaught Auto Counter
-- Spring Attack (when Wallop is on Cooldown), Onslaught, Shield Counter (when Spring Attack is on cooldown), Wallop (when Super Leap is on cooldown), Super Leap, Challenging Shout, and Super Leap auto cancel. Cancels deactivate for skills with full frontal block if a defense success has been detected.
+- Spring Attack (when Wallop is on Cooldown), Onslaught, Shield Counter (when Spring Attack is on cooldown), Wallop (when Super Leap is on cooldown), Super Leap, Challenging Shout, and Super Leap auto cancel. Cancels deactivate for skills with full frontal block if a defense success was detected
 - Charging Lunge (hit) into Super Leap
 - Debilitate into Wallop
 
@@ -31,3 +31,4 @@ To implement:
 - Auto pop beer and brooch (AHK/RobotJS is better for this)
 - Combo Attack into Onslaught (when not moving)
 - Auto Skate when a movement key is being held
+
