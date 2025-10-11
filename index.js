@@ -111,6 +111,8 @@ module.exports = function LancerHelper(mod) {
   mod.hook("S_ACTION_STAGE", 9, { order: -Infinity }, (event) => {
     if (!enabled) return;
 
+    const base = Math.floor(event.skill.id/10000);
+
     if (event.skill.id === 11200) {
       allowOnslaught = true;
       mod.setTimeout(() => (allowOnslaught = false), 650 / aspd);
@@ -147,6 +149,11 @@ module.exports = function LancerHelper(mod) {
       if (config.OnslaughtAutoCounter) {
         mod.setTimeout(() => injectPacket(event, 81100), 2425 / speed);
       }
+    }
+
+    if (base === 4 && config.ChallengingShoutCancel) {
+      const speed = event.speed;
+      mod.setTimeout(() => blockCancel(event), 1400/speed)
     }
 
     if (event.skill.id === 50101) {
@@ -223,6 +230,11 @@ module.exports = function LancerHelper(mod) {
         }, 460 / aspd);
       }
     }
+
+    if (base === 12 && config.InfuriateCancel) {
+    mod.setTimeout(() => blockCancel(event), 1500/aspd);
+    }
+      
 
     if (event.skill.id === 151000) {
       allowLeap = true;
@@ -424,6 +436,7 @@ module.exports = function LancerHelper(mod) {
     }, 40);
   }
 };
+
 
 
 
