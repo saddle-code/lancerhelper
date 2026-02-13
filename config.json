@@ -1,5 +1,6 @@
 {
   "LockSpring": true,
+  "OffDuringAdrenalineRush": true,
   "SpringAttackHelper": false,
   "DebilitateIntoSpringAttack": false,
   "LockdownBlowIntoSpringAttack": false,
