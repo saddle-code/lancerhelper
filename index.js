@@ -32,8 +32,9 @@ module.exports = function LancerHelper(mod) {
   let springCooldown = 0;
   let onslaughtLastUse = 0;
   let onslaughtCooldown = 0;
-
+  let hasCountered = false;
   let event;
+  let allowWallop = true;
 
   mod.hook("S_LOGIN", 14, (event) => {
     cid = event.gameId;
@@ -106,7 +107,7 @@ module.exports = function LancerHelper(mod) {
     },
   );
 
-  mod.hook("S_DEFEND_SUCCESS", 3, (event) => {
+  mod.hook("S_DEFEND_SUCCESS", 3, { order: -Infinity }, (event) => {
     if (!enabled) return;
     if (event.perfect === false || event.perfect === true) {
       canCounter = true;
@@ -116,7 +117,7 @@ module.exports = function LancerHelper(mod) {
   mod.hook(
     "S_ACTION_STAGE",
     9,
-    { order: -Infinity, filter: { fake: true } },
+    { order: -500, filter: { fake: true } },
     (event) => {
       if (!enabled) return;
       if (event.gameId !== cid) return;
@@ -148,12 +149,12 @@ module.exports = function LancerHelper(mod) {
           mod.setTimeout(() => {
             if (canCounter) return;
             blockCancel(event);
-          }, 2500 / speed);
+          }, 2475 / speed);
         }
 
         if (config.LockOnslaught) {
           allowCounter = false;
-          mod.setTimeout(() => (allowCounter = true), 2425 / speed);
+          mod.setTimeout(() => (allowCounter = true), 2475 / speed);
         }
 
         if (config.OnslaughtAutoCounter) {
@@ -189,10 +190,17 @@ module.exports = function LancerHelper(mod) {
         if (isWallopReady && config.SpringAttackIntoWallop) {
           mod.setTimeout(() => injectPacket(event, 251000), 900 / aspd);
         }
+        if (config.LockSpring) {
+          allowWallop = false;
+          mod.setTimeout(() => {
+            allowWallop = true;
+          }, 900 / event.speed);
+        }
       }
 
       if (event.skill.id === 81100) {
         allowSpringAttack = true;
+        hasCountered = true;
         mod.setTimeout(() => (allowSpringAttack = false), 1440 / aspd);
         if (isSpringAttackReady && config.AutoCounterIntoSpringAttack) {
           mod.setTimeout(() => {
@@ -351,11 +359,17 @@ module.exports = function LancerHelper(mod) {
     },
   );
 
-  mod.hook("S_ACTION_END", 5, { order: -Infinity }, (event) => {
-    if (!enabled) return;
-    skillsEnded[event.skill.id] = true;
-    canCounter = false;
-  });
+  mod.hook(
+    "S_ACTION_END",
+    5,
+    { order: -500, filter: { fake: true } },
+    (event) => {
+      if (!enabled) return;
+      skillsEnded[event.skill.id] = true;
+      canCounter = false;
+      hasCountered = false;
+    },
+  );
 
   mod.hook("C_START_SKILL", 7, { order: -Infinity }, (event) => {
     const base = Math.floor(event.skill.id / 10000);
@@ -377,6 +391,10 @@ module.exports = function LancerHelper(mod) {
     }
 
     if (event.skill.id === 280100 && !allowLeap && config.SuperLeapHelper) {
+      return false;
+    }
+
+    if (event.skill.id === 251000 && !allowWallop) {
       return false;
     }
 
@@ -417,7 +435,7 @@ module.exports = function LancerHelper(mod) {
   }
 
   function blockCancel(event) {
-    if (isBlocking) return false;
+    if (isBlocking || canCounter) return false;
     mod.toServer("C_PRESS_SKILL", 4, {
       skill: {
         reserved: 0,
