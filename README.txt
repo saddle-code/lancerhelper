@@ -25,9 +25,9 @@ To implement:
 - Preference system to choose automatically between different skills (Wallop, Spring Attack or Onslaught)
 - Debilitate, Lockdown Blow cancels if no Spring Attack or Wallop
 - Logic that auto counters instead of cancelling wallop, super leap and onslaught
-- Spring Attack lock, with the option to turn it off if Adrenaline Rush is on
 - Auto pop beer and brooch (AHK/RobotJS is better for this)
 - Combo Attack into Onslaught (when not moving)
 - Auto Skate when a movement key is being held
+
 
 
