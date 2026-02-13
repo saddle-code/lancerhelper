@@ -1,8 +1,9 @@
 {
+  "LockSpring": true,
   "SpringAttackHelper": false,
   "DebilitateIntoSpringAttack": false,
   "LockdownBlowIntoSpringAttack": false,
-  "AutoSpringAttackCancel": false,
+  "AutoSpringAttackCancel": true,
   "ShieldBarrageIntoSpringAttack": false,
   "AutoCounterIntoSpringAttack": false,
   "ShieldCounterAutoCancel": false,
@@ -16,14 +17,14 @@
 
   "DebilitateIntoWallop": false,
   "WallopIntoLeap": false,
-  "WallopAutoCancel": false,
+  "WallopAutoCancel": true,
   "SpringAttackIntoWallop": false,
 
-  "SuperLeapAutoCancel": false,
+  "SuperLeapAutoCancel": true,
   "LungeHitAutoSuperLeap": false,
   "SuperLeapHelper": false,
 
-  "InfuriateCancel": false,
-  "ChallengingShoutCancel":false
+  "InfuriateCancel": true,
+  "ChallengingShoutCancel":true
 }
 
