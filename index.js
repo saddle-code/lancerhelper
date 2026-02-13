@@ -35,6 +35,7 @@ module.exports = function LancerHelper(mod) {
   let hasCountered = false;
   let event;
   let allowWallop = true;
+  let arushOn = false;
 
   mod.hook("S_LOGIN", 14, (event) => {
     cid = event.gameId;
@@ -190,7 +191,9 @@ module.exports = function LancerHelper(mod) {
         if (isWallopReady && config.SpringAttackIntoWallop) {
           mod.setTimeout(() => injectPacket(event, 251000), 900 / aspd);
         }
+
         if (config.LockSpring) {
+          if (config.OffDuringAdrenalineRush && arushOn) return;
           allowWallop = false;
           mod.setTimeout(() => {
             allowWallop = true;
@@ -264,6 +267,13 @@ module.exports = function LancerHelper(mod) {
         if (config.LungeHitAutoSuperLeap) {
           mod.setTimeout(() => injectPacket(event, 280100), 200 / aspd);
         }
+      }
+
+      if (base === 17) {
+        arushOn = true;
+        mod.setTimeout(() => {
+          arushOn = false;
+        }, 30000);
       }
 
       if (event.skill.id === 181100) {
