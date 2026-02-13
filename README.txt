@@ -14,8 +14,6 @@ Mod includes:
 
 Multiple macros that chain form the same skill (Debilitate -> Wallop and Debilitate -> Spring Attack, for example) will conflict with each other.
 
-Timing for Onslaught cancel is still WIP, it's hard to get it right.
-
 The "Helper"s help prevent accidental unchained casts of certain skills.
 
 Works with NGSP, but the cancels are bugged on PR. Does not work with Bern.
@@ -26,9 +24,10 @@ To implement:
 - Lockdown Blow, Shield Barrage & Shield Counter into Wallop
 - Preference system to choose automatically between different skills (Wallop, Spring Attack or Onslaught)
 - Debilitate, Lockdown Blow cancels if no Spring Attack or Wallop
-- Auto counter on Wallop and Super Leap (AHK/RobotJS is better for this)
+- Logic that auto counters instead of cancelling wallop, super leap and onslaught
 - Spring Attack lock, with the option to turn it off if Adrenaline Rush is on
 - Auto pop beer and brooch (AHK/RobotJS is better for this)
 - Combo Attack into Onslaught (when not moving)
 - Auto Skate when a movement key is being held
+
 
